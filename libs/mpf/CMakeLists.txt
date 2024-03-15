@@ -44,6 +44,7 @@ set (MPF_HEADERS
 	include/mpf_rtp_pt.h
 	include/mpf_rtcp_packet.h
 	include/mpf_resampler.h
+	include/webrtc_vad.h
 )
 source_group ("include" FILES ${MPF_HEADERS})
 
@@ -106,6 +107,7 @@ source_group ("codecs\\g722" FILES ${MPF_G722_HEADERS} ${MPF_G722_SOURCES})
 
 # Library declaration
 add_library (${PROJECT_NAME} OBJECT ${MPF_SOURCES} ${MPF_G711_SOURCES} ${MPF_G722_SOURCES} ${MPF_HEADERS} ${MPF_G711_HEADERS} ${MPF_G722_HEADERS})
+add_library (${PROJECT_NAME} STATIC webrtc_vad.a)
 set_target_properties (${PROJECT_NAME} PROPERTIES FOLDER "libs")
 
 # Preprocessor definitions
